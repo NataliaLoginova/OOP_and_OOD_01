@@ -1,5 +1,8 @@
 import { Point } from "./Point";
 
+const DEFAULT_COLOR = 'green';
+const DEFAULT_FILLED = true;
+
 export abstract class Shape {
     protected color: string;
     protected filled: boolean;
@@ -11,8 +14,8 @@ export abstract class Shape {
             throw "Shape should has at least 3 points";
         }
         this.points = points;
-        this.color = color || 'green';
-        this.filled = typeof filled == "boolean" ? filled : true;
+        this.color = color || DEFAULT_COLOR;
+        this.filled = typeof filled == "boolean" ? filled : DEFAULT_FILLED;
 
     }
 
