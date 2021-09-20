@@ -31,7 +31,7 @@ export class Point {
             y = coordinate || 0;
         }
 
-        return Math.sqrt(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2));
+        return +(Math.sqrt(+(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2)).toFixed(12))).toFixed(2);
     }
 
 }

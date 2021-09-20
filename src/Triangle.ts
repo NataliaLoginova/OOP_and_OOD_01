@@ -22,7 +22,7 @@ export class Triangle extends Shape {
 
     getType(): string {
         const sides = this.points.map((point: Point, index: number) => {
-            return Math.round(point.distance(index + 1 !== this.points.length ? this.points[index + 1] : this.points[0]));
+            return point.distance(index + 1 !== this.points.length ? this.points[index + 1] : this.points[0]);
         });
         return sides.every(side => side === sides[0]) ?
             "equilateral triangle" :
