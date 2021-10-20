@@ -24,7 +24,7 @@ export class Triangle extends Shape {
         const sides = this.points.map((point: Point, index: number) => {
             return point.distance(index + 1 !== this.points.length ? this.points[index + 1] : this.points[0]);
         });
-        return sides.every(side => side === sides[0]) ?
+        return sides.every(side => Math.abs(side - sides[0]) - 1e-7) ?
             "equilateral triangle" :
             sides.some((comparedSide, comparedIndex) => comparedSide === sides.find((side, index) => comparedSide === side && comparedIndex !== index)) ?
                 "isosceles triangle" :

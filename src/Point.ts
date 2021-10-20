@@ -5,11 +5,12 @@ interface IPoint {
 
 
 export class Point {
-    public x: number;
-    public y: number;
+    public x;
+    public y;
 
-    constructor();
-    constructor(x?: number, y?: number) {
+    constructor(x: number, y: number);
+    constructor(p: Point);
+    constructor(x?: number | Point, y?: number) {
         this.x = x;
         this.y = y;
     }
@@ -18,20 +19,20 @@ export class Point {
         return `(${this.x}, ${this.y})`
     }
 
-    public distance();
-    public distance(point?: Point);
-    public distance(point?, coordinate?) {
-        let x,y;
+    public distance(x: number, y: number): number;
+    public distance(p: Point): number
+    public distance(p?: number | Point, y?: number) {
+        let coorX,coorY;
 
-        if (point instanceof Point) {
-            x = point.x;
-            y = point.y;
+        if (p instanceof Point) {
+            coorX = p.x;
+            coorY = p.y;
         } else {
-            x = point || 0;
-            y = coordinate || 0;
+            coorX = p || 0;
+            coorY = y || 0;
         }
 
-        return +(Math.sqrt(+(Math.pow(this.x - x, 2) + Math.pow(this.y - y, 2)).toFixed(12))).toFixed(2);
+        return +(Math.sqrt(+(Math.pow(this.x - coorX, 2) + Math.pow(this.y - coorY, 2)).toFixed(12))).toFixed(2);
     }
 
 }
